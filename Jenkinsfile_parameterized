@@ -1,6 +1,6 @@
 #!groovy
 
-@Library("Infrastructure") _
+@Library("Infrastructure@feature/Remove-obsolete-dsl-construct") _
 
 properties([
   parameters([
