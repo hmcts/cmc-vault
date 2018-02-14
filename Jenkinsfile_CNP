@@ -1,0 +1,13 @@
+#!groovy
+
+@Library("Infrastructure") _
+
+properties([
+  parameters([
+    string(name: 'PRODUCT', defaultValue: 'cmc-vault', description: ''),
+    choice(name: 'ENVIRONMENT', choices: 'sandbox\nsaat\nsprod', description: 'Environment where code should be build and deployed'),
+    choice(name: 'SUBSCRIPTION', choices: 'sandbox\nnonprod\nprod', description: 'Azure subscriptions available to build in')
+  ])
+])
+
+withInfrastructurePipeline(params.PRODUCT, params.ENVIRONMENT, params.SUBSCRIPTION)
